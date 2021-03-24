@@ -61,10 +61,9 @@ public class DiscreteAction implements DiscreteActionInterface {
 	 *
 	 * Construct a DiscreteAction
 	 * 	 
-	 * @param Object 
-	 * @param String 
-	 * @param Timer 
-	 * @exception 
+	 * @param o Object on which the method will be applied
+	 * @param m Method of the DiscreteAction
+	 * @param timmer Timer provides new lapsTime 
 	 */
 	public DiscreteAction(Object o, String m, Timer timmer){
 		this();
@@ -84,7 +83,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 	 *
 	 * Spend the time of a DiscreteAction and that will log it 
 	 *
-	 * @param int  
+	 * @param i Int 
 	 */
 	public void spendTime(int t) {
 		Integer old = this.lapsTime;
