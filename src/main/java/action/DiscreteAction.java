@@ -32,9 +32,8 @@ public class DiscreteAction implements DiscreteActionInterface {
 
 	// Constructor
 	/*
-	 * DiscrteAction constructor 
 	 * 
-	 * It setups the logger
+	 * Construtor that setups the logger
 	 * 
 	 */
 	private DiscreteAction() {
@@ -59,9 +58,9 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	/**
-	 * DiscreteAction constructor
 	 *
-	 *
+	 * Construct a DiscreteAction
+	 * 	 
 	 * @param Object 
 	 * @param String 
 	 * @param Timer 
@@ -81,10 +80,9 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	// ATTRIBUTION
-	/**
-	 * spendTime 
+	/** 
 	 *
-	 * A fonction that will spend the time of a DiscreteAction and that will log it 
+	 * Spend the time of a DiscreteAction and that will log it 
 	 *
 	 * @param int  
 	 */
@@ -99,15 +97,12 @@ public class DiscreteAction implements DiscreteActionInterface {
 
 	// RECUPERATION
 	/**
-	 * getMethod 
-	 *
 	 * @return method of the DiscreteAction
 	 */
 	public Method getMethod(){
 		return method;
 	}
 	/**
-	 * getCurrentLapsTime 
 	 *
 	 * @return current laps time
 	 */
@@ -115,7 +110,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 		return lapsTime;
 	}
 	/**
-	 * getObject 
 	 *
 	 * @return object of the DiscreteAction
 	 */
@@ -127,8 +121,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 
 	// COMPARAISON
 	/**
-	 * compareTo 
-	 *
 	 *	Compare the lapsTime of the DiscreteAction with the lapsTime of a DiscreteActionInterface
 	 *
 	 * @param DiscreteActionInterface
@@ -156,7 +148,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	/**
-	 * toString 
 	 *
 	 * Describes the DiscreteAction
 	 *
@@ -168,7 +159,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	/**
-	 * next 
 	 *
 	 * Implement the next function of the Interface DiscreteActionInterface
 	 * 
@@ -183,7 +173,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	/**
-	 * hasNext 
 	 *
 	 * Tell if the DiscreteAction is finish or if it has other timmers
 	 * 
