@@ -19,8 +19,8 @@ import timer.Timer;
 
 // TODO must inherit from Action
 public class DiscreteAction implements DiscreteActionInterface {
-	private Object object;
-	private Method method;
+	private Object object;				// the object on which the method will be applied
+	private Method method;				// the action of the DiscreteAction
 	
 	
 	private Timer timmer;				// timer provides new lapsTime
