@@ -28,7 +28,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 	//private Vector<Integer> lapsTimes;// obsolete, managed in timer
 	private Integer lapsTime; 			// waiting time (null if never used)
 	
-	private Logger logger;
+	private Logger logger;				// logger to write on the console
 
 	// Constructor
 	
@@ -53,6 +53,15 @@ public class DiscreteAction implements DiscreteActionInterface {
 			this.logger.addHandler(logConsole);*/
 	}
 	
+	/**
+	 * DiscreteAction constructor
+	 *
+	 *
+	 * @param Object 
+	 * @param String 
+	 * @param Timer 
+	 * @exception 
+	 */
 	public DiscreteAction(Object o, String m, Timer timmer){
 		this();
 		this.object = o;
@@ -67,7 +76,13 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	// ATTRIBUTION
-
+	/**
+	 * spendTime 
+	 *
+	 * A fonction that will spend the time of a DiscreteAction and that will log it 
+	 *
+	 * @param int  
+	 */
 	public void spendTime(int t) {
 		Integer old = this.lapsTime;
 		if(this.lapsTime != null) {
@@ -78,13 +93,27 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 
 	// RECUPERATION
-
+	/**
+	 * getMethod 
+	 *
+	 * @return method of the DiscreteAction
+	 */
 	public Method getMethod(){
 		return method;
 	}
+	/**
+	 * getCurrentLapsTime 
+	 *
+	 * @return current laps time
+	 */
 	public Integer getCurrentLapsTime(){
 		return lapsTime;
 	}
+	/**
+	 * getObject 
+	 *
+	 * @return object of the DiscreteAction
+	 */
 	public Object getObject(){
 		return object;
 	}
@@ -92,6 +121,16 @@ public class DiscreteAction implements DiscreteActionInterface {
 
 
 	// COMPARAISON
+	/**
+	 * compareTo 
+	 *
+	 *	Compare the lapsTime of the DiscreteAction with the lapsTime of a DiscreteActionInterface
+	 *
+	 * @param DiscreteActionInterface
+	 * @return 0 if lapsTimes are equals
+	 * @return 1 if there is no lapsTime for the DiscreteAction or if it is greater than lapsTime of the DiscreteActionInterface
+	 * @return -1 if there is no lapsTime for the DiscreteActionInterface or if it is greater than lapsTime of the DiscreteAction
+	 */
 	public int compareTo(DiscreteActionInterface c) {
 		if (this.lapsTime == null) { // no lapstime is equivalent to infinity 
 			return 1;
@@ -110,12 +149,26 @@ public class DiscreteAction implements DiscreteActionInterface {
 		}
 		return 0;
 	}
-
+	
+	/**
+	 * toString 
+	 *
+	 * Describes the DiscreteAction
+	 *
+	 * @return String that describes the DiscreteAction
+	 */
 	public String toString(){
 		return "Object : " + this.object.getClass().getName() + "\n Method : " + this.method.getName()+"\n Stat. : "+ this.timmer + "\n delay: " + this.lapsTime;
 
 	}
-
+	
+	/**
+	 * next 
+	 *
+	 * Implemeent the next function of the Interface DiscreteActionInterface
+	 * 
+	 * @return DiscreteAction
+	 */
 	public DiscreteActionInterface next() {
 		Integer old = this.lapsTime;
 		this.lapsTime = this.timmer.next();
