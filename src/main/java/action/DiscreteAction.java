@@ -31,7 +31,12 @@ public class DiscreteAction implements DiscreteActionInterface {
 	private Logger logger;				// logger to write on the console
 
 	// Constructor
-	
+	/*
+	 * DiscrteAction constructor 
+	 * 
+	 * It setups the logger
+	 * 
+	 */
 	private DiscreteAction() {
 		// Start logger
 			this.logger = Logger.getLogger("DAS");
@@ -165,7 +170,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 	/**
 	 * next 
 	 *
-	 * Implemeent the next function of the Interface DiscreteActionInterface
+	 * Implement the next function of the Interface DiscreteActionInterface
 	 * 
 	 * @return DiscreteAction
 	 */
@@ -176,7 +181,14 @@ public class DiscreteAction implements DiscreteActionInterface {
 		//System.out.println("[DA] operate 'next' on " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime() + "\n");
 		return this;
 	}
-
+	
+	/**
+	 * hasNext 
+	 *
+	 * Tell if the DiscreteAction is finish or if it has other timmers
+	 * 
+	 * @return Boolean True if there is more timmers and false if not 
+	 */
 	public boolean hasNext() {
 		Boolean more=false;
 		if (this.timmer != null && this.timmer.hasNext()) {
