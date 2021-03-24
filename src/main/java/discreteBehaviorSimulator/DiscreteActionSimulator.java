@@ -21,17 +21,17 @@ import action.DiscreteActionInterface;
 public class DiscreteActionSimulator implements Runnable {
 
 
-	private Thread t;
-	private boolean running = false;
+	private Thread t; // a thread that manages an ordered list of actions to perform and a clock to simulate a virtual time virtual time
+	private boolean running = false;  // true if an action is running
 	
-	private Clock globalTime;
+	private Clock globalTime;  // clock with corresponds to global time
 	
-	private Vector<DiscreteActionInterface> actionsList = new Vector<>();
+	private Vector<DiscreteActionInterface> actionsList = new Vector<>(); // list of actions to do and their waiting time
 	
-	private int nbLoop;
-	private int step;
+	private int nbLoop; //nbLoop defines the number of loop for the simulation, the simulation is infinite if nbLoop is negative or 0.
+	private int step; // 1 if nbLoop >1 else -1
 	
-	private Logger logger;
+	private Logger logger;  // logger to write on the console
 	private FileHandler logFile; 
 	private ConsoleHandler logConsole; 
 
@@ -73,6 +73,9 @@ public class DiscreteActionSimulator implements Runnable {
 		}
 	}
 	
+	/**
+	 * @param c is the action to add to the action list.
+	 */
 	public void addAction(DiscreteActionInterface c){
 
 		if(c.hasNext()) {
@@ -133,6 +136,11 @@ public class DiscreteActionSimulator implements Runnable {
 		return sleepTime;
 	}
 
+	
+	/**
+	 * extract the first action from the list (the one with the lowest waiting time) by updating it
+	 * @param running time of the first capsul of the list
+	 */
 	private void updateTimes(int runningTimeOf1stCapsul){
 		
 		// update time laps off all actions
@@ -141,6 +149,12 @@ public class DiscreteActionSimulator implements Runnable {
 			//this.actionsList.get(i).setLapsTemps(d- runningTimeOf1stCapsul);
 			this.actionsList.get(i).spendTime(runningTimeOf1stCapsul);
 		}
+		
+		/**
+		 * @return running time of the first capsul of the list
+		 */
+		
+		
 
 		// get new time lapse of first action
 		/*if(this.globalTime == null) {
@@ -172,7 +186,9 @@ public class DiscreteActionSimulator implements Runnable {
 		}
 	}
 
-
+	/**
+	 * execute an action
+	 */
 	public void run() {
 		int count = this.nbLoop;
 		boolean finished = false;
@@ -213,16 +229,26 @@ public class DiscreteActionSimulator implements Runnable {
 		}
 	}
 
+	/**
+		start an action
+	 */
 	public void start(){
 		this.running = true;
 		this.t.start();
 	}
-
+	
+	/**
+	stop an action
+ */
 	public void stop(){
 		System.out.println("STOP THREAD " + t.getName() + "obj " + this);
 		this.running = false;
 	}
 	
+	
+	/**
+	
+ */
 	public String toString(){
 		StringBuffer toS = new StringBuffer("------------------\nTestAuto :" + this.actionsList.size());
 		for(DiscreteActionInterface c : this.actionsList){
@@ -231,7 +257,10 @@ public class DiscreteActionSimulator implements Runnable {
 		toS.append("---------------------\n");
 		return toS.toString();
 	}
-
+	
+	/**
+	@return running
+ */
 	public boolean getRunning() {
 		return this.running;
 	}
