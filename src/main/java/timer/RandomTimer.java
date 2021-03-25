@@ -35,7 +35,9 @@ public class RandomTimer implements Timer {
 	}
 	
 	/**
-	 * @param param constraint 
+	 * Construct a randomTimer
+	 * @param distribution distribution followed by the timer
+	 * @param param param according to the distribution followed by the timer 
 	 * @throws Exception 
 	 */
 	public RandomTimer(randomDistribution distribution, double param) throws Exception{
@@ -56,7 +58,10 @@ public class RandomTimer implements Timer {
 		}
 	}
 	/**
-	 * @param min/max constraint
+	 * Construct a randomTimer
+	 * @param distribution distribution followed by the timer
+	 * @param lolim min value of the distribution
+	 * @param hilim max value of the distribution
 	 * @throws Exception 
 	 */
 	public RandomTimer(randomDistribution distribution, int lolim, int hilim) throws Exception{
@@ -73,7 +78,7 @@ public class RandomTimer implements Timer {
 	
 	/** 
 	 *
-	 * return the distribution name 
+	 * @return the distribution name 
 	 * 
 	 */
 	public String getDistribution(){
@@ -81,9 +86,7 @@ public class RandomTimer implements Timer {
 	}
 	
 	/** 
-	 *
-	 * return the distribution parameters 
-	 * 
+	 * @return the distribution parameters 
 	 */
 	public String getDistributionParam() {
 		if(distribution == randomDistribution.EXP ){
@@ -98,9 +101,7 @@ public class RandomTimer implements Timer {
 	}
 	
 	/** 
-	 *
-	 * return the mean 
-	 * 
+	 * @return the mean 
 	 */
 	public double getMean(){
 		return this.mean;
@@ -129,6 +130,7 @@ public class RandomTimer implements Timer {
 
 	/* (non-Javadoc)
 	 * @see methodInvocator.Timer#next()
+	 * @return the next time according to the distribution type
 	 */
 	@Override
 	public Integer next(){
@@ -158,18 +160,14 @@ public class RandomTimer implements Timer {
 	}*/
 	
 	/**
-	 * Give good mean
-	 * Give wrong variance
-	 * according to the distribution  
+	 * @return next time of posibilist distribution  
 	 */
 	private int nextTimePosibilist(){
 	    return (int)this.lolim + (int)(this.r.nextDouble() * (this.hilim - this.lolim));
 	}
 	
 	/**
-	 * Give good mean
-	 * Give wrong variance
-	 * according to the distribution  
+	 * @return next time of exp distribution
 	 */
 	private int nextTimeExp(){
 	    return (int)(-Math.log(1.0 - this.r.nextDouble()) / this.rate);
@@ -177,9 +175,7 @@ public class RandomTimer implements Timer {
 	
 	
 	/**
-	 * Give good mean
-	 * Give good variance
-	 * according to the distribution
+	 * @return next time of poisson distribution
 	 */
 	private int nextTimePoisson() {
 	    
@@ -194,16 +190,14 @@ public class RandomTimer implements Timer {
 	}   		
 	    
 	/**
-	 * Give good mean
-	 * Give good variance
-	 * according to the distribution
+	 * @return next time of gaussian distribution
 	 */
 	private int nextTimeGaussian(){
 		return (int)this.lolim + (int)((this.r.nextGaussian() + 1.0)/2.0 * (this.hilim - this.lolim));
 	}
 	
 	/**
-	 * return if it has a next time
+	 * @return if it has a next time
 	 */
 	@Override
 	public boolean hasNext() {
