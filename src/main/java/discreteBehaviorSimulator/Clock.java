@@ -41,14 +41,14 @@ public class Clock {
 	
 	/**
 	 * add an observer 
-	 * @param new observer to add
+	 * @param o new observer to add
 	 */
 	public void addObserver(ClockObserver o) {
 		this.observers.add(o);
 	}
 	/**
 	 * remove an observer 
-	 * @param observer to remove
+	 * @param o observer to remove
 	 */
 	public void removeObserver(ClockObserver o) {
 		this.observers.remove(o);
@@ -71,7 +71,7 @@ public class Clock {
 	
 	/**
 	 * set the next jump
-	 * @param nex jump
+	 * @param nextJump (next jump to do)
 	 */
 	public void setNextJump(int nextJump) {
 		this.nextJump = nextJump;
@@ -95,8 +95,8 @@ public class Clock {
 	
 	/**
 	 * increase the time on clock 
-	 * @param ammount of time to increase
-	 * @throws exception to notify if the time is not equal to the next jump
+	 * @param time (amount of time to increase)
+	 * @throws Exception when time != next jump
 	 */
 	public void increase(int time) throws Exception {
 
