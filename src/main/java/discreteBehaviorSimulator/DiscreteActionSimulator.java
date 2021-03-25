@@ -80,8 +80,7 @@ public class DiscreteActionSimulator implements Runnable {
 	 * 
 	 * Add an action to a DiscreteActionInterface if it has more elements
 	 * 
-	 * @param action to add to the actionslist
-	 * @return laps time before the next action
+	 * @param c action to add to the actionslist
 	 */
 	public void addAction(DiscreteActionInterface c){
 
