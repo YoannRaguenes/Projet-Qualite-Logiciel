@@ -71,10 +71,20 @@ public class RandomTimer implements Timer {
 		}
 	}
 	
+	/** 
+	 *
+	 * return the distribution name 
+	 * 
+	 */
 	public String getDistribution(){
 		return this.distribution.name();
 	}
 	
+	/** 
+	 *
+	 * return the distribution parameters 
+	 * 
+	 */
 	public String getDistributionParam() {
 		if(distribution == randomDistribution.EXP ){
 			return "rate: " + this.rate;
@@ -87,6 +97,11 @@ public class RandomTimer implements Timer {
 		return "null";
 	}
 	
+	/** 
+	 *
+	 * return the mean 
+	 * 
+	 */
 	public double getMean(){
 		return this.mean;
 	}
@@ -144,7 +159,8 @@ public class RandomTimer implements Timer {
 	
 	/**
 	 * Give good mean
-	 * Give wrong variance  
+	 * Give wrong variance
+	 * according to the distribution  
 	 */
 	private int nextTimePosibilist(){
 	    return (int)this.lolim + (int)(this.r.nextDouble() * (this.hilim - this.lolim));
@@ -152,7 +168,8 @@ public class RandomTimer implements Timer {
 	
 	/**
 	 * Give good mean
-	 * Give wrong variance  
+	 * Give wrong variance
+	 * according to the distribution  
 	 */
 	private int nextTimeExp(){
 	    return (int)(-Math.log(1.0 - this.r.nextDouble()) / this.rate);
@@ -162,6 +179,7 @@ public class RandomTimer implements Timer {
 	/**
 	 * Give good mean
 	 * Give good variance
+	 * according to the distribution
 	 */
 	private int nextTimePoisson() {
 	    
@@ -175,12 +193,18 @@ public class RandomTimer implements Timer {
 	    return k - 1;
 	}   		
 	    
-	
+	/**
+	 * Give good mean
+	 * Give good variance
+	 * according to the distribution
+	 */
 	private int nextTimeGaussian(){
 		return (int)this.lolim + (int)((this.r.nextGaussian() + 1.0)/2.0 * (this.hilim - this.lolim));
 	}
 	
-	
+	/**
+	 * return if it has a next time
+	 */
 	@Override
 	public boolean hasNext() {
 		return true;
