@@ -14,9 +14,9 @@ import action.DiscreteActionInterface;
 
 
 /**
+ * Manage actions in the simulation
  * @author Tiphaine Bulou (2016)
  * @author Flavien Vernier
- *
  */
 public class DiscreteActionSimulator implements Runnable {
 
