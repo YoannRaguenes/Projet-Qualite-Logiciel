@@ -19,8 +19,8 @@ import timer.Timer;
 
 // TODO must inherit from Action
 public class DiscreteAction implements DiscreteActionInterface {
-	private Object object;
-	private Method method;
+	private Object object;				// the object on which the method will be applied
+	private Method method;				// the action of the DiscreteAction
 	
 	
 	private Timer timmer;				// timer provides new lapsTime
@@ -31,7 +31,11 @@ public class DiscreteAction implements DiscreteActionInterface {
 	private Logger logger;				// logger to write on the console
 
 	// Constructor
-	
+	/*
+	 * 
+	 * Construtor that setups the logger
+	 * 
+	 */
 	private DiscreteAction() {
 		// Start logger
 			this.logger = Logger.getLogger("DAS");
@@ -54,13 +58,12 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	/**
-	 * DiscreteAction constructor
 	 *
-	 *
-	 * @param Object 
-	 * @param String 
-	 * @param Timer 
-	 * @exception 
+	 * Construct a DiscreteAction
+	 * 	 
+	 * @param o Object on which the method will be applied
+	 * @param m Method of the DiscreteAction
+	 * @param timmer Timer provides new lapsTime 
 	 */
 	public DiscreteAction(Object o, String m, Timer timmer){
 		this();
@@ -76,12 +79,11 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	// ATTRIBUTION
-	/**
-	 * spendTime 
+	/** 
 	 *
-	 * A fonction that will spend the time of a DiscreteAction and that will log it 
+	 * Spend the time of a DiscreteAction and that will log it 
 	 *
-	 * @param int  
+	 * @param i Int 
 	 */
 	public void spendTime(int t) {
 		Integer old = this.lapsTime;
@@ -94,15 +96,12 @@ public class DiscreteAction implements DiscreteActionInterface {
 
 	// RECUPERATION
 	/**
-	 * getMethod 
-	 *
 	 * @return method of the DiscreteAction
 	 */
 	public Method getMethod(){
 		return method;
 	}
 	/**
-	 * getCurrentLapsTime 
 	 *
 	 * @return current laps time
 	 */
@@ -110,7 +109,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 		return lapsTime;
 	}
 	/**
-	 * getObject 
 	 *
 	 * @return object of the DiscreteAction
 	 */
@@ -122,8 +120,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 
 	// COMPARAISON
 	/**
-	 * compareTo 
-	 *
 	 *	Compare the lapsTime of the DiscreteAction with the lapsTime of a DiscreteActionInterface
 	 *
 	 * @param DiscreteActionInterface
@@ -151,7 +147,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	/**
-	 * toString 
 	 *
 	 * Describes the DiscreteAction
 	 *
@@ -163,9 +158,8 @@ public class DiscreteAction implements DiscreteActionInterface {
 	}
 	
 	/**
-	 * next 
 	 *
-	 * Implemeent the next function of the Interface DiscreteActionInterface
+	 * Implement the next function of the Interface DiscreteActionInterface
 	 * 
 	 * @return DiscreteAction
 	 */
@@ -176,7 +170,13 @@ public class DiscreteAction implements DiscreteActionInterface {
 		//System.out.println("[DA] operate 'next' on " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime() + "\n");
 		return this;
 	}
-
+	
+	/**
+	 *
+	 * Tell if the DiscreteAction is finish or if it has other timmers
+	 * 
+	 * @return Boolean True if there is more timmers and false if not 
+	 */
 	public boolean hasNext() {
 		Boolean more=false;
 		if (this.timmer != null && this.timmer.hasNext()) {

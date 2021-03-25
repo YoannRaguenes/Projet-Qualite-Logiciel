@@ -61,6 +61,7 @@ public class DiscreteActionSimulator implements Runnable {
 	}
 	
 	/**
+	 * 
 	 * @param nbLoop defines the number of loop for the simulation, the simulation is infinite if nbLoop is negative or 0.
 	 */
 	public void setNbLoop(int nbLoop){
@@ -73,8 +74,12 @@ public class DiscreteActionSimulator implements Runnable {
 		}
 	}
 	
+	
 	/**
-	 * @param c is the action to add to the action list.
+	 * 
+	 * Add an action to a DiscreteActionInterface if it has more elements
+	 * 
+	 * @param DiscreteActionInterface
 	 */
 	public void addAction(DiscreteActionInterface c){
 
@@ -91,15 +96,15 @@ public class DiscreteActionSimulator implements Runnable {
 		
 	}*/
 
-	/**
-	 * @return the laps time before the next action
+	/*
+	 * return the laps time before the next action
 	 */
 	private int nextLapsTime() {
 		DiscreteActionInterface currentAction = this.actionsList.get(0);
 		return currentAction.getCurrentLapsTime();
 	}
-	/**
-	 * @return laps time of the running action
+	/*
+	 * return laps time of the running action
 	 */
 	private int runAction(){
 		// Run the first action
