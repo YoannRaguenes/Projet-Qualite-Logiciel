@@ -32,19 +32,20 @@ public class DiscreteActionSimulator implements Runnable {
 	private int step; // 1 if nbLoop >1 else -1
 	
 	private Logger logger;  // logger to write on the console
-	private FileHandler logFile; 
-	private ConsoleHandler logConsole; 
+	private FileHandler logFile; // manage log writing
+	private ConsoleHandler logConsole;  // manage log printing
 
+	
+	/**
+	 * Used to show the logs 
+	 */
 	public DiscreteActionSimulator(){
-		
-		// Start logger
+	
 		this.logger = Logger.getLogger("DAS");
-		//this.logger = Logger.getLogger("APP");
 		this.logger.setLevel(Level.ALL);
 		this.logger.setUseParentHandlers(true);
 		try{
 			this.logFile = new FileHandler(this.getClass().getName() + ".log");
-			//this.logFile.setFormatter(new SimpleFormatter());
 			this.logFile.setFormatter(new LogFormatter());
 			this.logConsole = new ConsoleHandler();
 		}catch(Exception e){
@@ -61,7 +62,7 @@ public class DiscreteActionSimulator implements Runnable {
 	}
 	
 	/**
-	 * 
+	 * setter of the number of loops
 	 * @param nbLoop defines the number of loop for the simulation, the simulation is infinite if nbLoop is negative or 0.
 	 */
 	public void setNbLoop(int nbLoop){
@@ -79,26 +80,22 @@ public class DiscreteActionSimulator implements Runnable {
 	 * 
 	 * Add an action to a DiscreteActionInterface if it has more elements
 	 * 
-	 * @param DiscreteActionInterface
+	 * @param action to add to the actionslist
+	 * @return laps time before the next action
 	 */
 	public void addAction(DiscreteActionInterface c){
 
 		if(c.hasNext()) {
-			// add to list of actions, next is call to the action exist at the first time
-			this.actionsList.add(c.next());
+				
+			this.actionsList.add(c.next()); // add to list of actions, next is call to the action exist at the first time
 
-			// sort the list for ordered execution 
-			Collections.sort(this.actionsList);
+			
+			Collections.sort(this.actionsList);  // sort the list for ordered execution 
 		}
 	}
 	
-	/*public void addTemporalRule(TemporalRule r){
-		
-	}*/
 
-	/*
-	 * return the laps time before the next action
-	 */
+	
 	private int nextLapsTime() {
 		DiscreteActionInterface currentAction = this.actionsList.get(0);
 		return currentAction.getCurrentLapsTime();
@@ -145,6 +142,7 @@ public class DiscreteActionSimulator implements Runnable {
 	/**
 	 * extract the first action from the list (the one with the lowest waiting time) by updating it
 	 * @param running time of the first capsul of the list
+	 * @return running time of the first capsul of the list
 	 */
 	private void updateTimes(int runningTimeOf1stCapsul){
 		
@@ -155,9 +153,7 @@ public class DiscreteActionSimulator implements Runnable {
 			this.actionsList.get(i).spendTime(runningTimeOf1stCapsul);
 		}
 		
-		/**
-		 * @return running time of the first capsul of the list
-		 */
+		
 		
 		
 
@@ -192,7 +188,7 @@ public class DiscreteActionSimulator implements Runnable {
 	}
 
 	/**
-	 * execute an action
+	 * execute the simulation
 	 */
 	public void run() {
 		int count = this.nbLoop;
@@ -235,7 +231,7 @@ public class DiscreteActionSimulator implements Runnable {
 	}
 
 	/**
-		start an action
+		start thread
 	 */
 	public void start(){
 		this.running = true;
@@ -243,7 +239,7 @@ public class DiscreteActionSimulator implements Runnable {
 	}
 	
 	/**
-	stop an action
+	stop thread
  */
 	public void stop(){
 		System.out.println("STOP THREAD " + t.getName() + "obj " + this);
@@ -252,7 +248,7 @@ public class DiscreteActionSimulator implements Runnable {
 	
 	
 	/**
-	
+	 * Facilitates the readability of the messages returned by the simulation
  */
 	public String toString(){
 		StringBuffer toS = new StringBuffer("------------------\nTestAuto :" + this.actionsList.size());
@@ -264,7 +260,7 @@ public class DiscreteActionSimulator implements Runnable {
 	}
 	
 	/**
-	@return running
+	@return running (true or false)
  */
 	public boolean getRunning() {
 		return this.running;
