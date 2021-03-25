@@ -83,7 +83,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 	 *
 	 * Spend the time of a DiscreteAction and that will log it 
 	 *
-	 * @param i int how much time you want to spend 
+	 * @param t int how much time you want to spend 
 	 */
 	public void spendTime(int t) {
 		Integer old = this.lapsTime;

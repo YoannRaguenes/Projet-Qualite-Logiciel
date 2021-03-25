@@ -16,16 +16,19 @@ public interface DiscreteActionInterface extends Comparable<DiscreteActionInterf
 	
 	/**
 	 * return the method to execute
+	 * @return the method to execute
 	 */
 	public Method getMethod();
 	
-	/**
+	/** 
 	 * return the last laps time without update
+	 * @return the last laps time without update
 	 */
 	public Integer getCurrentLapsTime();
 	
 	/**
-	 * get the object on which the method must be invoked
+	 * return the object on which the method must be invoked
+	 * @return the object on which the method must be invoked
 	 */
 	public Object getObject();
 
