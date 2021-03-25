@@ -6,14 +6,19 @@ public class PeriodicTimer implements Timer {
 	private int next;
 	private RandomTimer moreOrLess = null;
 	
+	/**
+	 * Construct a periodic timer
+	 * @param at time at which it repeats
+	 * 
+	 */
 	public PeriodicTimer(int at) {
 		this.period = at;
 		this.next = at;
 	}
 	
 	/**
-	 * @param at
-	 * @param moreOrLess
+	 * @param at time at which it repeats
+	 * @param moreOrLess noises of the period
 	 * 
 	 * use MergedTimer instead
 	 */
@@ -24,15 +29,21 @@ public class PeriodicTimer implements Timer {
 		this.next = at + (int)(this.moreOrLess.next() - this.moreOrLess.getMean());
 	}
 	
+	/**
+	 * Construct a periodic timer
+	 * @param period period of the timer
+	 * @param at time of the next timer
+	 * 
+	 */
 	public PeriodicTimer(int period, int at) {
 		this.period = period;
 		this.next = at;
 	}
 	
 	/**
-	 * @param period
-	 * @param at
-	 * @param moreOrLess
+	 * @param period period of the timer
+	 * @param at time used to calculate the next timer
+	 * @param moreOrLess noises
 	 * 
 	 * use MergedTimer instead
 	 */
@@ -43,11 +54,17 @@ public class PeriodicTimer implements Timer {
 		this.next = at + (int)(this.moreOrLess.next() - this.moreOrLess.getMean());
 	}
 	
+	
+	/**
+	 * @return the period of the time
+	 */
 	public int getPeriod() {
 		return this.period;
 	}
 	
-	
+	/**
+	 * @return the next time
+	 */
 	@Override
 	public Integer next() {
 		
@@ -77,6 +94,9 @@ public class PeriodicTimer implements Timer {
 		return next;
 	}*/
 
+	/**
+	 * @return if it has a next time
+	 */
 	@Override
 	public boolean hasNext() {
 		return true;
