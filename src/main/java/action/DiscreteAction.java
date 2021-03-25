@@ -83,7 +83,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 	 *
 	 * Spend the time of a DiscreteAction and that will log it 
 	 *
-	 * @param i Int 
+	 * @param i int how much time you want to spend 
 	 */
 	public void spendTime(int t) {
 		Integer old = this.lapsTime;
@@ -122,7 +122,7 @@ public class DiscreteAction implements DiscreteActionInterface {
 	/**
 	 *	Compare the lapsTime of the DiscreteAction with the lapsTime of a DiscreteActionInterface
 	 *
-	 * @param DiscreteActionInterface
+	 * @param c DiscreteActionInterface that you want compare  
 	 * @return 0 if lapsTimes are equals
 	 * @return 1 if there is no lapsTime for the DiscreteAction or if it is greater than lapsTime of the DiscreteActionInterface
 	 * @return -1 if there is no lapsTime for the DiscreteActionInterface or if it is greater than lapsTime of the DiscreteAction
