@@ -7,11 +7,16 @@ import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
 /**
+ * Define the log to show to users
  * @author Flavien Vernier
- *
  */
 public class LogFormatter  extends Formatter {
 	
+	/**
+	 * Constructor
+	 * @param log record 
+	 * @return string of log record 
+	 */
 	public String format(LogRecord rec) {
 		StringBuffer buf = new StringBuffer();
 		
@@ -25,20 +30,27 @@ public class LogFormatter  extends Formatter {
 		return buf.toString();
 	}
 	
+	/**
+	 * Convert a time in millisecs to a date
+	 * @param millisecs 
+	 * @return date
+	 */
 	private String calcDate(long millisecs) {
 	    SimpleDateFormat date_format = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss.SS");
 	    Date resultdate = new Date(millisecs);
 	    return date_format.format(resultdate);
 	  }
 
-	  // this method is called just after the handler using this
-	  // formatter is created
+	/**
+	   *@return head
+	   */
 	  public String getHead(Handler h) {
 		  return "";
 	  }
 	  
-	// this method is called just after the handler using this
-	  // formatter is closed
+	  /**
+	   *@return tail
+	   */
 	  public String getTail(Handler h) {
 	    return "";
 	  }
