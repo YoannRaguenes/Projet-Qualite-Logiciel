@@ -198,26 +198,23 @@ public class RandomTimer implements Timer {
 		return this.next();
 	}*/
 	
-	/**
+	/*
 	 * Get the next time a possibilist distribution should return
-	 * @return next time
 	 */
 	private int nextTimePosibilist(){
 	    return (int)this.lolim + (int)(this.r.nextDouble() * (this.hilim - this.lolim));
 	}
 	
-	/**
+	/*
 	 * Get the next time a possibilist distribution should return
-	 * @return next time
 	 */
 	private int nextTimeExp(){
 	    return (int)(-Math.log(1.0 - this.r.nextDouble()) / this.rate);
 	}
 	
 	
-	/**
+	/*
 	 * Get the next time a poisson distribution should return
-	 * @return next time
 	 */
 	private int nextTimePoisson() {
 	    
@@ -231,9 +228,8 @@ public class RandomTimer implements Timer {
 	    return k - 1;
 	}   		
 	    
-	/**
+	/*
 	 * Get the next time a gaussian distribution should return
-	 * @return next time
 	 */
 	private int nextTimeGaussian(){
 		return (int)this.lolim + (int)((this.r.nextGaussian() + 1.0)/2.0 * (this.hilim - this.lolim));

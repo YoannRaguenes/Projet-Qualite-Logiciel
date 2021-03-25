@@ -14,7 +14,7 @@ public class LogFormatter  extends Formatter {
 	
 	/**
 	 * Constructor
-	 * @param log record 
+	 * @param rec record 
 	 * @return string of log record 
 	 */
 	public String format(LogRecord rec) {
