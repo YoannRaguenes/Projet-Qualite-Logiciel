@@ -1,15 +1,20 @@
 package timer;
 
+/**
+ * A timer returnin periodic values
+ * @author Damien
+ *
+ */
 public class PeriodicTimer implements Timer {
 
-	private int period;
-	private int next;
-	private RandomTimer moreOrLess = null;
+	private int period; // the period between each call
+	private int next; // next value of the time
+	private RandomTimer moreOrLess = null; // the random time used to alter period
 	
 	/**
-	 * Construct a periodic timer
-	 * @param at time at which it repeats
+	 * Create a Periodic Timer with the desired period
 	 * 
+	 * @param at time at which it repeats
 	 */
 	public PeriodicTimer(int at) {
 		this.period = at;
@@ -17,10 +22,11 @@ public class PeriodicTimer implements Timer {
 	}
 	
 	/**
-	 * @param at time at which it repeats
-	 * @param moreOrLess noises of the period
+	 * Create a Periodic Timer with the desired period and a random alteration
 	 * 
-	 * use MergedTimer instead
+	 * @param at the period to use
+	 * @param moreOrLess a random timer used to produce noises
+	 * @deprecated use {@link MergedTimer} instead
 	 */
 	@Deprecated
 	public PeriodicTimer(int at, RandomTimer moreOrLess) {
@@ -41,11 +47,12 @@ public class PeriodicTimer implements Timer {
 	}
 	
 	/**
-	 * @param period period of the timer
-	 * @param at time used to calculate the next timer
-	 * @param moreOrLess noises
+	 * Create a Periodic Timer with the desired period and a random alteration
 	 * 
-	 * use MergedTimer instead
+	 * @param period the period to use
+	 * @param at the delay before the first call, added to the randomized period
+	 * @param moreOrLess random timer used to produce noises
+	 * @deprecated use {@link MergedTimer} instead
 	 */
 	@Deprecated
 	public PeriodicTimer(int period, int at, RandomTimer moreOrLess) {
