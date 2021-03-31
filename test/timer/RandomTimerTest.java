@@ -90,7 +90,7 @@ class RandomTimerTest {
 	
 	@Test
 	void testDistribution2String() {
-		Assertions.assertEquals(RandomTimer.distribution2String(randomDistribution.GAUSSIAN), "GAUSSIAN"); // vérifier si c'est le bon string
+		Assertions.assertEquals(RandomTimer.distribution2String(randomDistribution.GAUSSIAN), "GAUSSIAN");
 		Assertions.assertEquals(RandomTimer.distribution2String(randomDistribution.EXP), "EXP");
 		Assertions.assertEquals(RandomTimer.distribution2String(randomDistribution.POSIBILIST), "POSIBILIST");
 		Assertions.assertEquals(RandomTimer.distribution2String(randomDistribution.POISSON), "POISSON");

@@ -35,7 +35,6 @@ public class RandomTimer implements Timer {
 		GAUSSIAN;
 	}
 	
-	//private static String randomDistributionString[] = {"POISSON", "EXP", "POSIBILIST", "GAUSSIAN"};
 	
 	private Random r = new Random(); // The random random number generator
 	private randomDistribution distribution; // the distribution formula used by this timer
@@ -185,19 +184,7 @@ public class RandomTimer implements Timer {
 		}
 		return -1; // Theoretically impossible !!!
 	}
-	
-	/*
-	 * Equivalent to methodInvocator.RandomTimer#next()
-	 * 
-	 * @param since has no effect
-	 * 
-	 * @see methodInvocator.RandomTimer#next(int)
-	 */
-	/*@Override
-	public Integer next(int since){
-		return this.next();
-	}*/
-	
+		
 	/*
 	 * Get the next time a possibilist distribution should return
 	 */
