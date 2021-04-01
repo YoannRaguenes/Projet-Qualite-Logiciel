@@ -31,5 +31,22 @@ class OneShotTimerTest {
 		OneShotTimer oneShotTimer = new OneShotTimer(currentTime);
 		Assertions.assertTrue(oneShotTimer.next()>= currentTime);
 	}
+	
+	@Test
+	/**
+	 * next function test
+	 */
+	void testNext() {
+		OneShotTimer ost = new OneShotTimer(5);
+		assertEquals(ost.next(),5);
+	}
+	@Test
+	/**
+	 * hasNext function test
+	 */
+	void testHasNext() {
+		OneShotTimer ost = new OneShotTimer(5);
+		assertTrue(ost.hasNext());
+	}
 
 }
