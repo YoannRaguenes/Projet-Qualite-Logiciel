@@ -32,5 +32,60 @@ class PeriodicTimerTest {
 		Assertions.assertTrue(periodicTimer.next() >= currentTime);
 	}
 	
-
+	@Test
+	/**
+	 * first builder test and getter of period attribute
+	 */
+	void testPeriodicTimer() {
+		PeriodicTimer pt = new PeriodicTimer(3);
+		assertEquals(pt.getPeriod(),3);
+	}
+	
+	@Test
+	/**
+	 * second builder test
+	 */
+	void testPeriodicTimer2() throws Exception {
+		RandomTimer randomTimer = new RandomTimer(randomDistribution.EXP, 1);
+		PeriodicTimer pt = new PeriodicTimer(3, randomTimer);
+		assertEquals(pt.getPeriod(),3);
+	}
+	
+	@Test
+	/**
+	 * third builder test
+	 */
+	void testPeriodicTimer3() {
+		PeriodicTimer pt = new PeriodicTimer(3,4);
+		assertEquals(pt.getPeriod(),3);
+	}
+	
+	@Test
+	/**
+	 * fourth builder test
+	 */
+	void testPeriodicTimer4() throws Exception {
+		RandomTimer randomTimer = new RandomTimer(randomDistribution.EXP, 1);
+		PeriodicTimer pt = new PeriodicTimer(4, 4, randomTimer);
+		assertEquals(pt.getPeriod(),4);
+	}
+	
+	@Test
+	/**
+	 * function next test
+	 */
+	void testNext() {
+		PeriodicTimer pt = new PeriodicTimer(3,4);
+		assertEquals(pt.next(),4);
+	}
+	
+	@Test
+	/**
+	 * function hasNext test
+	 */
+	void testHasNext() {
+		PeriodicTimer pt = new PeriodicTimer(3,4);
+		assertTrue(pt.hasNext());
+	}
+	
 }
