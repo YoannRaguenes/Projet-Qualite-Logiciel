@@ -1,4 +1,4 @@
-package action;
+package timer;
 
 import static org.junit.Assert.*;
 
