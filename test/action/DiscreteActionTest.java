@@ -10,9 +10,6 @@ import action.DiscreteActionDependent;
 
 public class DiscreteActionTest {
 
-	@Before
-	public void setUp() throws Exception {
-	}
 
 	@Test
     public void spendTimeTest() {
