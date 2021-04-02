@@ -2,7 +2,6 @@ package action;
 
 import java.lang.reflect.Method;
 import java.util.TreeSet;
-import java.util.Vector;
 
 import timer.DateTimer;
 import timer.Timer;
@@ -17,7 +16,6 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 	protected DiscreteActionInterface offAction;		// the off action
 	protected DiscreteActionInterface currentAction;	// the current action 
 	
-	private Integer currentLapsTime;					// the current LapsTime
 	private Integer lastOffDelay=0;						// delay initialy equals 0 
 	
 	
@@ -34,43 +32,8 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 		this.offAction = new DiscreteAction(o, off, timerOff);
 		
 		this.currentAction = this.offAction;
-		this.currentLapsTime = 0;
 	}
-	
-	/*
-	 * 
-	 */
-	private void dates2Timalapse(TreeSet<Integer> datesOn, TreeSet<Integer> datesOff, Vector<Integer> timeLapseOn, Vector<Integer> timeLapseOff) {
-		Vector<Integer> currentTimeLapse;
-		TreeSet<Integer> currentDates;
-		Integer date=0;
-		if(datesOn.first()<datesOff.first()) {
-			currentTimeLapse = timeLapseOn;
-			currentDates = datesOn;
-		}else {
-			currentTimeLapse = timeLapseOff;	
-			currentDates = datesOff;		
-		}
-		Integer nextDate;
-		
-		while(datesOn.size()>0 || datesOff.size()>0) {
-			nextDate = currentDates.first();
-		
-			currentTimeLapse.add(nextDate - date);
-			currentDates.remove(nextDate);
-		
-			date = nextDate;
-			
-			if(currentDates == datesOn) {
-				currentDates = datesOff;
-				currentTimeLapse = timeLapseOff;
-			}else {
-				currentDates = datesOn;
-				currentTimeLapse = timeLapseOn;			
-			}
-		}
-		
-	}
+
 	
 	/**
 	 * Constructor

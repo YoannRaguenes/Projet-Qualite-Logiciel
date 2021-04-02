@@ -73,7 +73,8 @@ public class DiscreteAction implements DiscreteActionInterface {
 		if(this.lapsTime != null) {
 			this.lapsTime -= t;
 		}
-		this.logger.log(Level.FINE, "[DA] operate spendTime on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime());
+		String message = String.format("[DA] operate spendTime on  %s : %d : old time %d  new time  %d" , this.getObject().getClass().getName() , this.getObject().hashCode(), old, this.getCurrentLapsTime()); 
+		this.logger.log(Level.FINE, message);
 	}
 
 	// RECUPERATION
@@ -122,7 +123,7 @@ public class DiscreteAction implements DiscreteActionInterface {
     	if(this.lapsTime < c.getCurrentLapsTime()){
     		return -1;
     	}
-		if(this.lapsTime == c.getCurrentLapsTime()){
+		if(this.lapsTime.equals(c.getCurrentLapsTime())){
 			return 0;
 		}
 		return 0;
@@ -148,7 +149,8 @@ public class DiscreteAction implements DiscreteActionInterface {
 	public DiscreteActionInterface next() {
 		Integer old = this.lapsTime;
 		this.lapsTime = this.timmer.next();
-		this.logger.log(Level.FINE, "[DA] operate next on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime());
+		String message = String.format("[DA] operate next on  %s : %d : old time %d  new time %d", this.getObject().getClass().getName(), this.getObject().hashCode(), old, this.getCurrentLapsTime());
+		this.logger.log(Level.FINE, message);
 		return this;
 	}
 	

@@ -2,6 +2,7 @@ package action;
 
 import java.lang.reflect.Method;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
 import timer.Timer;
@@ -30,7 +31,7 @@ public class DiscreteActionDependent implements DiscreteActionInterface {
 	 */	
 	public DiscreteActionDependent(Object o, String baseMethodName, Timer timerBase){
 		this.baseAction = new DiscreteAction(o, baseMethodName, timerBase);
-		this.depedentActions = new TreeSet<DiscreteAction>();
+		this.depedentActions = new TreeSet<>();
 		this.it = this.depedentActions.iterator();
 		this.currentAction = this.baseAction;
 	}
@@ -137,9 +138,7 @@ public class DiscreteActionDependent implements DiscreteActionInterface {
 	 * 
 	 * @return DiscreteActionInterface
 	 */
-	public DiscreteActionInterface next() {
-		Method method = this.getMethod();
-		Object object = this.getObject();
+	public DiscreteActionInterface next() throws NoSuchElementException {
 		return this;
 	}
 	
