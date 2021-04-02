@@ -6,12 +6,18 @@ import org.junit.jupiter.api.Test;
 class OneShotTimerTest {
 
 	@Test
+	/**
+	 * Constructor test with closed to limits values
+	 */
 	void testCloseToLimitsConstructor() {
 		OneShotTimer oneShotTimer = new OneShotTimer(Integer.MAX_VALUE);
 		Assertions.assertTrue(oneShotTimer.next() == Integer.MAX_VALUE);
 	}
 	
 	@Test
+	/**
+	 * Constructor test with out of the bounds values
+	 */
 	void testOutOfTheBoundsConstructor() {
 		Assertions.assertThrows(Exception.class, () -> {
 			new OneShotTimer(-1);
@@ -19,6 +25,9 @@ class OneShotTimerTest {
 	}
 	
 	@Test
+	/**
+	 * test if we the next of the next of a oneShotTimer is null
+	 */
 	void testDoubleNext() {
 		OneShotTimer oneShotTimer = new OneShotTimer(1);
 		oneShotTimer.next();
@@ -26,6 +35,9 @@ class OneShotTimerTest {
 	}
 	
 	@Test
+	/**
+	 * test if the next time is superior than current time
+	 */
 	void testNextTimeSupCurrentTime() {
 		int currentTime = 1;
 		OneShotTimer oneShotTimer = new OneShotTimer(currentTime);

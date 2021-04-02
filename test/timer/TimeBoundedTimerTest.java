@@ -8,6 +8,10 @@ import timer.RandomTimer.randomDistribution;
 class TimeBoundedTimerTest {
 
 	@Test
+	/**
+	 * first constructor test
+	 * @throws Exception
+	 */
 	void testFirstConstructor() throws Exception {
 		TimeBoundedTimer timeBoundedTimer = new TimeBoundedTimer(new RandomTimer(randomDistribution.EXP, 1), 0, 100);
 		Assertions.assertTrue(timeBoundedTimer.hasNext());
@@ -15,6 +19,10 @@ class TimeBoundedTimerTest {
 	}
 	
 	@Test
+	/**
+	 * second constructor test
+	 * @throws Exception
+	 */
 	void testSecondConstructor() throws Exception {
 		TimeBoundedTimer timeBoundedTimer = new TimeBoundedTimer(new RandomTimer(randomDistribution.EXP, 1), 0);
 		Assertions.assertTrue(timeBoundedTimer.hasNext());
@@ -22,6 +30,10 @@ class TimeBoundedTimerTest {
 	}
 	
 	@Test
+	/**
+	 * test what happens if end time is inferior to start time
+	 * @throws Exception
+	 */
 	void testEndTimeInfStartTimeConstructor() throws Exception {
 		TimeBoundedTimer timeBoundedTimer = new TimeBoundedTimer(new RandomTimer(randomDistribution.EXP, 1), 100, 0);
 		Assertions.assertNotNull(timeBoundedTimer.hasNext());

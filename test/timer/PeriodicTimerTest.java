@@ -9,12 +9,18 @@ import timer.RandomTimer.randomDistribution;
 class PeriodicTimerTest {
 
 	@Test
+	/**
+	 * Constructor test with closed to limits values
+	 */
 	void testCloseToLimitsConstructor() {
 		PeriodicTimer periodicTimer = new PeriodicTimer(Integer.MAX_VALUE);
 		Assertions.assertTrue(periodicTimer.getPeriod() == Integer.MAX_VALUE);
 	}
 	
 	@Test
+	/**
+	 * first constructor test with out of the bounds values
+	 */
 	void testPeriodOutOfTheBoundsConstructor() {
 		Assertions.assertThrows(Exception.class, () -> {
 			new PeriodicTimer(-1, 1);
@@ -22,6 +28,9 @@ class PeriodicTimerTest {
 	}
 	
 	@Test
+	/**
+	 * second constructor test with out of the bounds values
+	 */
 	void testAtOutOfTheBoundsConstructor() {
 		Assertions.assertThrows(Exception.class, () -> {
 			new PeriodicTimer(-1);
@@ -29,6 +38,9 @@ class PeriodicTimerTest {
 	}
 	
 	@Test
+	/**
+	 * test if next time is superior to current time
+	 */
 	void testNextTimeSupCurrentTime() {
 		int currentTime = 1;
 		PeriodicTimer periodicTimer = new PeriodicTimer(currentTime);

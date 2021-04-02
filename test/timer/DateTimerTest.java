@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Test;
 class DateTimerTest {
 
 	@Test
+	/**
+	 * test if intervals are positive
+	 */
 	void testPositiveInterval() {
 		TreeSet<Integer> dates = new TreeSet<Integer>();
 		dates.add(3);
@@ -21,6 +24,9 @@ class DateTimerTest {
 	}
 	
 	@Test
+	/**
+	 * Constructor test with value closed to limits
+	 */
 	void testClostToLimitConstructor() {
 		TreeSet<Integer> dates = new TreeSet<Integer>();
 		dates.add(Integer.MAX_VALUE);
@@ -30,6 +36,9 @@ class DateTimerTest {
 	}
 	
 	@Test
+	/**
+	 * Constructor test with values out of the bounds
+	 */
 	void testOutOfTheBoundsConstructor() {
 		Vector<Integer> vector = new Vector<Integer>();
 		vector.add(-1);
