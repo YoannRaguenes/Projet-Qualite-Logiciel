@@ -53,7 +53,7 @@ class DateTimerTest {
 		lapsTimesExcepte.add(1);
 		lapsTimesExcepte.add(1);
 		lapsTimesExcepte.add(1);
-		assertEquals(d.lapsTimes, lapsTimesExcepte);
+		Assertions.assertEquals(d.lapsTimes, lapsTimesExcepte);
 	}
 
 	@Test
@@ -70,7 +70,7 @@ class DateTimerTest {
 		lapsTimesExcepte.add(-3);
 		lapsTimesExcepte.add(4);
 		lapsTimesExcepte.add(1);
-		assertEquals(d.lapsTimes, lapsTimesExcepte);
+		Assertions.assertEquals(d.lapsTimes, lapsTimesExcepte);
 	}
 	
 	@Test
@@ -87,7 +87,7 @@ class DateTimerTest {
 		lapsTimesExcepte.add(1);
 		lapsTimesExcepte.add(1);
 		lapsTimesExcepte.add(1);
-		assertEquals(d.lapsTimes, lapsTimesExcepte);
+		Assertions.assertEquals(d.lapsTimes, lapsTimesExcepte);
 	}
 	
 	@Test
@@ -100,7 +100,7 @@ class DateTimerTest {
 		lapsTime.add(1);
 		lapsTime.add(2);
 		DateTimer d = new DateTimer(lapsTime);
-		assertEquals(d.lapsTimes, lapsTime);
+		Assertions.assertEquals(d.lapsTimes, lapsTime);
 	}
 	
 	@Test
@@ -113,7 +113,7 @@ class DateTimerTest {
 		lapsTime.add(-1);
 		lapsTime.add(-2);
 		DateTimer d = new DateTimer(lapsTime);
-		assertEquals(d.lapsTimes, lapsTime);
+		Assertions.assertEquals(d.lapsTimes, lapsTime);
 	}
 	
 	@Test
@@ -126,7 +126,7 @@ class DateTimerTest {
 		lapsTime.add(-1);
 		lapsTime.add(-2);
 		DateTimer d = new DateTimer(lapsTime);
-		assertTrue(d.hasNext());
+		Assertions.assertTrue(d.hasNext());
 	}
 	
 	@Test
@@ -136,7 +136,7 @@ class DateTimerTest {
 	void testHesNext2() {
 		Vector<Integer> lapsTime = new Vector<Integer>();
 		DateTimer d = new DateTimer(lapsTime);
-		assertFalse(d.hasNext());
+		Assertions.assertFalse(d.hasNext());
 	}
 	
 	@Test
@@ -149,7 +149,7 @@ class DateTimerTest {
 		lapsTime.add(1);
 		lapsTime.add(2);
 		DateTimer d = new DateTimer(lapsTime);
-		assertEquals(d.next(),1);
+		Assertions.assertEquals(d.next(),1);
 	}
 	
 	@Test
@@ -159,6 +159,6 @@ class DateTimerTest {
 	void testNext2() {
 		Vector<Integer> lapsTime = new Vector<Integer>();
 		DateTimer d = new DateTimer(lapsTime);
-		assertNull(d.next());
+		Assertions.assertNull(d.next());
 	}
 }

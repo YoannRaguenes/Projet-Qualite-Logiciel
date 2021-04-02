@@ -38,7 +38,7 @@ class OneShotTimerTest {
 	 */
 	void testNext() {
 		OneShotTimer ost = new OneShotTimer(5);
-		assertEquals(ost.next(),5);
+		Assertions.assertEquals(ost.next(),5);
 	}
 	@Test
 	/**
@@ -46,7 +46,7 @@ class OneShotTimerTest {
 	 */
 	void testHasNext() {
 		OneShotTimer ost = new OneShotTimer(5);
-		assertTrue(ost.hasNext());
+		Assertions.assertTrue(ost.hasNext());
 	}
 
 }

@@ -3,6 +3,9 @@ package timer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import timer.RandomTimer.randomDistribution;
+
+
 class PeriodicTimerTest {
 
 	@Test
@@ -38,7 +41,7 @@ class PeriodicTimerTest {
 	 */
 	void testPeriodicTimer() {
 		PeriodicTimer pt = new PeriodicTimer(3);
-		assertEquals(pt.getPeriod(),3);
+		Assertions.assertEquals(pt.getPeriod(),3);
 	}
 	
 	@Test
@@ -48,7 +51,7 @@ class PeriodicTimerTest {
 	void testPeriodicTimer2() throws Exception {
 		RandomTimer randomTimer = new RandomTimer(randomDistribution.EXP, 1);
 		PeriodicTimer pt = new PeriodicTimer(3, randomTimer);
-		assertEquals(pt.getPeriod(),3);
+		Assertions.assertEquals(pt.getPeriod(),3);
 	}
 	
 	@Test
@@ -57,7 +60,7 @@ class PeriodicTimerTest {
 	 */
 	void testPeriodicTimer3() {
 		PeriodicTimer pt = new PeriodicTimer(3,4);
-		assertEquals(pt.getPeriod(),3);
+		Assertions.assertEquals(pt.getPeriod(),3);
 	}
 	
 	@Test
@@ -67,7 +70,7 @@ class PeriodicTimerTest {
 	void testPeriodicTimer4() throws Exception {
 		RandomTimer randomTimer = new RandomTimer(randomDistribution.EXP, 1);
 		PeriodicTimer pt = new PeriodicTimer(4, 4, randomTimer);
-		assertEquals(pt.getPeriod(),4);
+		Assertions.assertEquals(pt.getPeriod(),4);
 	}
 	
 	@Test
@@ -76,7 +79,7 @@ class PeriodicTimerTest {
 	 */
 	void testNext() {
 		PeriodicTimer pt = new PeriodicTimer(3,4);
-		assertEquals(pt.next(),4);
+		Assertions.assertEquals(pt.next(),4);
 	}
 	
 	@Test
@@ -85,7 +88,7 @@ class PeriodicTimerTest {
 	 */
 	void testHasNext() {
 		PeriodicTimer pt = new PeriodicTimer(3,4);
-		assertTrue(pt.hasNext());
+		Assertions.assertTrue(pt.hasNext());
 	}
 	
 }
