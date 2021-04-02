@@ -59,7 +59,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 			e.printStackTrace();
 		}
 		this.timmer = timmer;
-		//this.updateTimeLaps();
 	}
 	
 	// ATTRIBUTION
