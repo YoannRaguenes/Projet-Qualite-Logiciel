@@ -150,7 +150,6 @@ public class DiscreteAction implements DiscreteActionInterface {
 		Integer old = this.lapsTime;
 		this.lapsTime = this.timmer.next();
 		this.logger.log(Level.FINE, "[DA] operate next on  " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime());
-		//System.out.println("[DA] operate 'next' on " + this.getObject().getClass().getName() + ":" + this.getObject().hashCode() + ": old time " + old + " new time " + this.getCurrentLapsTime() + "\n");
 		return this;
 	}
 	
