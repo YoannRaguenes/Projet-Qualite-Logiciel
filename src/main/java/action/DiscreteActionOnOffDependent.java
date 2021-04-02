@@ -20,22 +20,6 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 	private Integer currentLapsTime;					// the current LapsTime
 	private Integer lastOffDelay=0;						// delay initialy equals 0 
 	
-	/**
-	 * Construct an On Off dependence, first action (method) called is On, then method nextMethod() is called to select the next action.
-	 * The default behavior of nextMethod() is to switch between On and Off actions.  It can be change by overloading. 
-	 * 
-	 * @param o 
-	 * @param on
-	 * @param timerOn
-	 * @param off
-	 * @param timerOff
-	 */
-	/*public DiscreteActionOnOffDependent(Wo o, Method on, Timer timerOn, Method off, Timer timerOff){
-		this.onAction = new DiscreteAction(o, on, timerOn);
-		this.offAction = new DiscreteAction(o, off, timerOff);
-		
-		this.currentAction = this.onAction;
-	}*/
 	
 	/**
 	 * Constructor
@@ -97,11 +81,6 @@ public class DiscreteActionOnOffDependent implements DiscreteActionInterface {
 	 * @param datesOff Tree of multiple Timer for the offAction 
 	 */
 	public DiscreteActionOnOffDependent(Object o, String on, TreeSet<Integer> datesOn, String off, TreeSet<Integer> datesOff){
-		/*Vector<Integer> timeLapseOn = new Vector<Integer>();
-		Vector<Integer> timeLapseOff = new Vector<Integer>();
-		
-		dates2Timalapse((TreeSet<Integer>)datesOn.clone(), (TreeSet<Integer>)datesOff.clone(), timeLapseOn, timeLapseOff);
-		*/
 		this.onAction = new DiscreteAction(o, on, new DateTimer(datesOn));
 		this.offAction = new DiscreteAction(o, off, new DateTimer(datesOff));
 		
